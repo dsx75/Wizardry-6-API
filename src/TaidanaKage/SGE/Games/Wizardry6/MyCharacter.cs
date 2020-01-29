@@ -7,6 +7,10 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     {
         private byte[] _binData;
         private string _name;
+        private int _currentHitPoints;
+        private int _totalHitPoints;
+        private int _currentStamina;
+        private int _totalStamina;
 
         internal MyCharacter(byte[] binData)
         {
@@ -19,6 +23,18 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             {
                 _name += Convert.ToChar(_binData[i]);
             }
+
+            // Current hit points
+            _currentHitPoints = _binData[24] + (256 * _binData[25]);
+
+            // Total hit points
+            _totalHitPoints = _binData[26] + (256 * _binData[27]);
+
+            // Current stamina
+            _currentStamina = _binData[28] + (256 * _binData[29]);
+
+            // Total stamina
+            _totalStamina = _binData[30] + (256 * _binData[31]);
         }
 
         public byte[] BinData
@@ -60,6 +76,66 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
         public Profession Profession { get; set; }
 
+        public int CurrentHitPoints
+        {
+            get
+            {
+                return _currentHitPoints;
+            }
+            set
+            {
+                // TODO add checks for min/max allowed values
+                // TODO update binary data
+
+                _currentHitPoints = value;
+            }
+        }
+
+        public int TotalHitPoints
+        {
+            get
+            {
+                return _totalHitPoints;
+            }
+            set
+            {
+                // TODO add checks for min/max allowed values
+                // TODO update binary data
+
+                _totalHitPoints = value;
+            }
+        }
+
+        public int CurrentStamina
+        {
+            get
+            {
+                return _currentStamina;
+            }
+            set
+            {
+                // TODO add checks for min/max allowed values
+                // TODO update binary data
+
+                _currentStamina = value;
+            }
+        }
+
+        public int TotalStamina
+        {
+            get
+            {
+                return _totalStamina;
+            }
+            set
+            {
+                // TODO add checks for min/max allowed values
+                // TODO update binary data
+
+                _totalStamina = value;
+            }
+        }
+
         public int Strength { get; set; }
 
         public int Intelligence { get; set; }
@@ -75,6 +151,5 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         public int Personality { get; set; }
 
         public int Karma { get; set; }
-
     }
 }

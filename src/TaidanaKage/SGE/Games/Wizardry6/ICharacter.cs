@@ -36,6 +36,26 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         Profession Profession { get; set; }
 
         /// <summary>
+        /// Current hit points
+        /// </summary>
+        int CurrentHitPoints { get; set; }
+
+        /// <summary>
+        /// Max hit points
+        /// </summary>
+        int TotalHitPoints { get; set; }
+
+        /// <summary>
+        /// Current stamina
+        /// </summary>
+        int CurrentStamina { get; set; }
+
+        /// <summary>
+        /// Max stamina
+        /// </summary>
+        int TotalStamina { get; set; }
+
+        /// <summary>
         /// Strength (STR) 
         /// Allowed values: 0 - 18
         /// </summary>
