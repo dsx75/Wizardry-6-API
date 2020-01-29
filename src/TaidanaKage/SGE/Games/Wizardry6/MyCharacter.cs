@@ -11,6 +11,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         private ushort _totalHitPoints;
         private ushort _currentStamina;
         private ushort _totalStamina;
+        private IAttributes _attributes;
 
         internal MyCharacter(byte[] binData)
         {
@@ -35,6 +36,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
             // Total stamina
             _totalStamina = (ushort)(_binData[30] + (256 * _binData[31]));
+
+            // Attributes
+            byte[] binDataAttributes = new byte[8];
+            Array.Copy(_binData, 300, binDataAttributes, 0, 8);
+            _attributes = new MyAttributes(binDataAttributes);
         }
 
         public byte[] BinData
@@ -152,20 +158,13 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
-        public int Strength { get; set; }
+        public IAttributes Attributes
+        {
+            get
+            {
+                return _attributes;
+            }
+        }
 
-        public int Intelligence { get; set; }
-
-        public int Piety { get; set; }
-
-        public int Vitality { get; set; }
-
-        public int Dexterity { get; set; }
-
-        public int Speed { get; set; }
-
-        public int Personality { get; set; }
-
-        public int Karma { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             Characters = characters;
         }
 
-        public List<ICharacter> Characters { get; set; }
+        public List<ICharacter> Characters { get; }
 
         public byte[] BinData
         {

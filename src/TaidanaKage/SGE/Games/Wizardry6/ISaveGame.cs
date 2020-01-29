@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TaidanaKage.SGE.Games.Wizardry6
 {
     /// <summary>
-    /// Wizardy 6 saved game file
+    /// Saved game file
     /// </summary>
     public interface ISaveGame
     {
@@ -12,7 +12,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// <summary>
         /// Player characters (party)
         /// </summary>
-        List<ICharacter> Characters { get; set; }
+        List<ICharacter> Characters { get; }
 
         /// <summary>
         /// The whole save game file represented as an array of bytes.
