@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace TaidanaKage.SGE.Games.Wizardry6
 {
@@ -17,43 +18,30 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// <returns>Save game</returns>
         public static ISaveGame ReadSaveGame(string fileName)
         {
-            int offsetChar1 = 49856; // C2C0
-            int hexDataLenght = 432;
-
-            List<ICharacter> characters = new List<ICharacter>();
+            byte[] binData = null;
 
             if (File.Exists(fileName))
             {
-                Console.WriteLine("Parsing " + fileName);
                 using (BinaryReader reader = new BinaryReader(File.Open(fileName, FileMode.Open)))
                 {
                     int length = (int)reader.BaseStream.Length;
                     Console.WriteLine("Lenght: " + length);
                     // TODO add check for lenght
 
-                    reader.BaseStream.Seek(offsetChar1, SeekOrigin.Begin);
-
-                    for (int ch = 1; ch < 7; ch++)
-                    {
-                        byte[] hexData = reader.ReadBytes(hexDataLenght);
-                        ICharacter character = new MyCharacter(hexData);
-                        characters.Add(character);
-                    }
+                    binData = reader.ReadBytes(length);
                 }
             }
-            return new MySaveGame(characters);
+            else
+            {
+                // TODO throw an exception - the specified file does not exist
+            }
+            return new MySaveGame(binData);
         }
 
-        public static void WriteSaveGame(string file, ISaveGame saveGame)
+        public static void WriteSaveGame(string fileName, ISaveGame saveGame)
         {
-            // TODO
+            File.WriteAllBytes(fileName, saveGame.BinData);
         }
-
-        public static ICharacter CreateNewCharacter(string name)
-        {
-            return new MyCharacter(name);
-        }
-
 
         public static void Check(ISaveGame saveGame)
         {

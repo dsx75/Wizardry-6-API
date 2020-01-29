@@ -14,5 +14,10 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// </summary>
         List<ICharacter> Characters { get; set; }
 
+        /// <summary>
+        /// The whole save game file represented as an array of bytes.
+        /// </summary>
+        byte[] BinData { get; }
+
     }
 }

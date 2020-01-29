@@ -9,6 +9,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     {
 
         /// <summary>
+        /// This character represented as an array of bytes.
+        /// </summary>
+        byte[] BinData { get; }
+
+        /// <summary>
         /// Name
         /// Min. required letters: 1
         /// Max. allowed letters: 7
