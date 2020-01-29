@@ -7,10 +7,10 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     {
         private byte[] _binData;
         private string _name;
-        private int _currentHitPoints;
-        private int _totalHitPoints;
-        private int _currentStamina;
-        private int _totalStamina;
+        private ushort _currentHitPoints;
+        private ushort _totalHitPoints;
+        private ushort _currentStamina;
+        private ushort _totalStamina;
 
         internal MyCharacter(byte[] binData)
         {
@@ -25,16 +25,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
 
             // Current hit points
-            _currentHitPoints = _binData[24] + (256 * _binData[25]);
+            _currentHitPoints = (ushort)(_binData[24] + (256 * _binData[25]));
 
             // Total hit points
-            _totalHitPoints = _binData[26] + (256 * _binData[27]);
+            _totalHitPoints = (ushort)(_binData[26] + (256 * _binData[27]));
 
             // Current stamina
-            _currentStamina = _binData[28] + (256 * _binData[29]);
+            _currentStamina = (ushort)(_binData[28] + (256 * _binData[29]));
 
             // Total stamina
-            _totalStamina = _binData[30] + (256 * _binData[31]);
+            _totalStamina = (ushort)(_binData[30] + (256 * _binData[31]));
         }
 
         public byte[] BinData
@@ -76,7 +76,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
         public Profession Profession { get; set; }
 
-        public int CurrentHitPoints
+        public ushort CurrentHitPoints
         {
             get
             {
@@ -85,13 +85,17 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             set
             {
                 // TODO add checks for min/max allowed values
-                // TODO update binary data
 
                 _currentHitPoints = value;
+
+                // Update binary data
+                byte[] b = BitConverter.GetBytes(_currentHitPoints);
+                _binData[24] = b[0];
+                _binData[25] = b[1];
             }
         }
 
-        public int TotalHitPoints
+        public ushort TotalHitPoints
         {
             get
             {
@@ -100,13 +104,17 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             set
             {
                 // TODO add checks for min/max allowed values
-                // TODO update binary data
 
                 _totalHitPoints = value;
+
+                // Update binary data
+                byte[] b = BitConverter.GetBytes(_totalHitPoints);
+                _binData[26] = b[0];
+                _binData[27] = b[1];
             }
         }
 
-        public int CurrentStamina
+        public ushort CurrentStamina
         {
             get
             {
@@ -115,13 +123,17 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             set
             {
                 // TODO add checks for min/max allowed values
-                // TODO update binary data
 
                 _currentStamina = value;
+
+                // Update binary data
+                byte[] b = BitConverter.GetBytes(_currentStamina);
+                _binData[28] = b[0];
+                _binData[29] = b[1];
             }
         }
 
-        public int TotalStamina
+        public ushort TotalStamina
         {
             get
             {
@@ -130,9 +142,13 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             set
             {
                 // TODO add checks for min/max allowed values
-                // TODO update binary data
 
                 _totalStamina = value;
+
+                // Update binary data
+                byte[] b = BitConverter.GetBytes(_totalStamina);
+                _binData[30] = b[0];
+                _binData[31] = b[1];
             }
         }
 

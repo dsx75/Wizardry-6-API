@@ -37,23 +37,27 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
         /// <summary>
         /// Current hit points
+        /// Allowed values: 0 - 9999
         /// </summary>
-        int CurrentHitPoints { get; set; }
+        ushort CurrentHitPoints { get; set; }
 
         /// <summary>
         /// Max hit points
+        /// Allowed values: 0 - 9999
         /// </summary>
-        int TotalHitPoints { get; set; }
+        ushort TotalHitPoints { get; set; }
 
         /// <summary>
         /// Current stamina
+        /// Allowed values: 0 - 9999
         /// </summary>
-        int CurrentStamina { get; set; }
+        ushort CurrentStamina { get; set; }
 
         /// <summary>
         /// Max stamina
+        /// Allowed values: 0 - 9999
         /// </summary>
-        int TotalStamina { get; set; }
+        ushort TotalStamina { get; set; }
 
         /// <summary>
         /// Strength (STR) 
