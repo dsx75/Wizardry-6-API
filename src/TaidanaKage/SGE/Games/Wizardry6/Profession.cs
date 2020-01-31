@@ -1,7 +1,7 @@
 ﻿namespace TaidanaKage.SGE.Games.Wizardry6
 {
     /// <summary>
-    /// Wizardry 6 professions
+    /// Professions
     /// </summary>
     public enum Profession
     {
@@ -15,9 +15,9 @@
         Psionic = 7,
         Valkyrie = 8,
         Bishop = 9,
-        Samurai = 10,
-        Monk = 11,
-        Ninja = 12,
-        Lord = 13
+        Lord = 10,
+        Samurai = 11,
+        Monk = 12,
+        Ninja = 13
     }
 }
