@@ -114,6 +114,31 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
+        public int Experience
+        {
+            get
+            {
+                return (int)(_binData[12] + (256 * _binData[13]) + (65536 * _binData[14]) + (16777216 * _binData[15]));
+            }
+            set
+            {
+                int xp = value;
+                if (xp < Constants.MinXp)
+                {
+                    xp = Constants.MinXp;
+                }
+                if (xp > Constants.MaxXp)
+                {
+                    xp = Constants.MaxXp;
+                }
+                byte[] b = BitConverter.GetBytes(xp);
+                _binData[12] = b[0];
+                _binData[13] = b[1];
+                _binData[14] = b[2];
+                _binData[15] = b[3];
+            }
+        }
+
         public Race Race { get; set; }
 
         public Sex Sex { get; set; }

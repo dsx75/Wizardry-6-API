@@ -9,6 +9,7 @@ Work in progress. More info soon.
 For each character:
 * Name
 * Age
+* XP
 * Hit Points
 * Stamina
 * 8 Statistics (read)
@@ -19,7 +20,6 @@ For each character:
 
 For each character:
 * 8 Statistics (write)
-* XP
 * MKS
 * Gold Pieces
 * CC
