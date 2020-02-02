@@ -164,6 +164,31 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
+        public int GoldPieces
+        {
+            get
+            {
+                return (int)(_binData[20] + (Constants.Pow8 * _binData[21]) + (Constants.Pow16 * _binData[22]) + (Constants.Pow24 * _binData[23]));
+            }
+            set
+            {
+                int gp = value;
+                if (gp < Constants.MinGold)
+                {
+                    gp = Constants.MinGold;
+                }
+                if (gp > Constants.MaxGold)
+                {
+                    gp = Constants.MaxGold;
+                }
+                byte[] b = BitConverter.GetBytes(gp);
+                _binData[20] = b[0];
+                _binData[21] = b[1];
+                _binData[22] = b[2];
+                _binData[23] = b[3];
+            }
+        }
+
         public Race Race { get; set; }
 
         public Sex Sex { get; set; }

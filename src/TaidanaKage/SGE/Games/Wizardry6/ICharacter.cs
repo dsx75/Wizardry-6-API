@@ -41,6 +41,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         int Kills { get; set; }
 
         /// <summary>
+        /// Gold Pieces (GP)
+        /// </summary>
+        int GoldPieces { get; set; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }

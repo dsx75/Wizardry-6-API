@@ -11,6 +11,7 @@ For each character:
 * Age
 * Experience (EXP)
 * Monster Kill Statistic (MKS)
+* Gold Pieces
 * Hit Points
 * Stamina
 * 8 Statistics (read)
@@ -21,7 +22,6 @@ For each character:
 
 For each character:
 * 8 Statistics (write)
-* Gold Pieces
 * CC
 * Spell Points (for each Realm)
 * Equipment
