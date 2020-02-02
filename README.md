@@ -7,10 +7,12 @@ Work in progress. More info soon.
 ### Implemented features
 
 For each character:
-* Name (read/write)
-* Hit Points (read/write)
-* Stamina (read/write)
+* Name
+* Hit Points
+* Stamina
 * 8 Statistics (read)
+* Level
+* Rebirths
 
 ### Features to implement
 
@@ -20,8 +22,6 @@ For each character:
 * MKS
 * Gold Pieces
 * CC
-* Level
-* Rebirths
 * Spell Points (for each Realm)
 * Equipment
 * Swag (12 Items)

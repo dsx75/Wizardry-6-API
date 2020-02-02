@@ -36,6 +36,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         Profession Profession { get; set; }
 
         /// <summary>
+        /// Level
+        /// </summary>
+        short Level { get; set; }
+
+        /// <summary>
+        /// Rebirths
+        /// </summary>
+        short Rebirths { get; set; }
+
+        /// <summary>
         /// Current hit points
         /// Allowed values: 0 - 9999
         /// </summary>

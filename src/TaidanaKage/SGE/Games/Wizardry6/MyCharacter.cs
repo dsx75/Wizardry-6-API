@@ -166,5 +166,51 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
+        public short Level
+        {
+            get
+            {
+                return (short)(_binData[36] + (256 * _binData[37]));
+            }
+            set
+            {
+                short level = value;
+                if (level < Constants.MinLevel)
+                {
+                    level = Constants.MinLevel;
+                }
+                if (level > Constants.MaxLevel)
+                {
+                    level = Constants.MaxLevel;
+                }
+                byte[] b = BitConverter.GetBytes(level);
+                _binData[36] = b[0];
+                _binData[37] = b[1];
+            }
+        }
+
+        public short Rebirths
+        {
+            get
+            {
+                return (short)(_binData[38] + (256 * _binData[39]));
+            }
+            set
+            {
+                short rebirths = value;
+                if (rebirths < Constants.MinRebirths)
+                {
+                    rebirths = Constants.MinRebirths;
+                }
+                if (rebirths > Constants.MaxRebirths)
+                {
+                    rebirths = Constants.MaxRebirths;
+                }
+                byte[] b = BitConverter.GetBytes(rebirths);
+                _binData[38] = b[0];
+                _binData[39] = b[1];
+            }
+        }
+
     }
 }
