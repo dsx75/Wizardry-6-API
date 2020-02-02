@@ -31,9 +31,14 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         int AgeInYears { get; set; }
 
         /// <summary>
-        /// Experience (in days)
+        /// Experience (EXP)
         /// </summary>
         int Experience { get; set; }
+
+        /// <summary>
+        /// Monster Kill Statistic (MKS)
+        /// </summary>
+        int Kills { get; set; }
 
         /// <summary>
         /// Race

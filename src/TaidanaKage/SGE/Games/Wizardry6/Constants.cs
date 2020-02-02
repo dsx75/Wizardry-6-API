@@ -7,12 +7,19 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     /// </summary>
     static class Constants
     {
+        public const int Pow8 = 256; // 2^8
+        public const int Pow16 = 65536; // 2^16
+        public const int Pow24 = 16777216; // 2^24
+
         public const int MinAge = 6570; // 18 years
         public const int MaxAge = 364635; // 999 years (only 3 digits are shown on the character screen)
         public const int DaysInYear = 365;
 
         public const int MinXp = 0;
         public const int MaxXp = Int32.MaxValue;
+
+        public const int MinKills = 0;
+        public const int MaxKills = Int32.MaxValue;
 
         public const short MinLevel = 1;
         public const short MaxLevel = Int16.MaxValue;

@@ -80,7 +80,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return (int)(_binData[8] + (256 * _binData[9]) + (65536 * _binData[10]) + (16777216 * _binData[11]));
+                return (int)(_binData[8] + (Constants.Pow8 * _binData[9]) + (Constants.Pow16 * _binData[10]) + (Constants.Pow24 * _binData[11]));
             }
             set
             {
@@ -118,7 +118,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return (int)(_binData[12] + (256 * _binData[13]) + (65536 * _binData[14]) + (16777216 * _binData[15]));
+                return (int)(_binData[12] + (Constants.Pow8 * _binData[13]) + (Constants.Pow16 * _binData[14]) + (Constants.Pow24 * _binData[15]));
             }
             set
             {
@@ -136,6 +136,31 @@ namespace TaidanaKage.SGE.Games.Wizardry6
                 _binData[13] = b[1];
                 _binData[14] = b[2];
                 _binData[15] = b[3];
+            }
+        }
+
+        public int Kills
+        {
+            get
+            {
+                return (int)(_binData[16] + (Constants.Pow8 * _binData[17]) + (Constants.Pow16 * _binData[18]) + (Constants.Pow24 * _binData[19]));
+            }
+            set
+            {
+                int kills = value;
+                if (kills < Constants.MinKills)
+                {
+                    kills = Constants.MinKills;
+                }
+                if (kills > Constants.MaxKills)
+                {
+                    kills = Constants.MaxKills;
+                }
+                byte[] b = BitConverter.GetBytes(kills);
+                _binData[16] = b[0];
+                _binData[17] = b[1];
+                _binData[18] = b[2];
+                _binData[19] = b[3];
             }
         }
 
@@ -233,7 +258,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return (short)(_binData[36] + (256 * _binData[37]));
+                return (short)(_binData[36] + (Constants.Pow8 * _binData[37]));
             }
             set
             {
@@ -256,7 +281,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return (short)(_binData[38] + (256 * _binData[39]));
+                return (short)(_binData[38] + (Constants.Pow8 * _binData[39]));
             }
             set
             {
