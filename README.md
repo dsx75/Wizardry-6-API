@@ -8,6 +8,7 @@ Work in progress. More info soon.
 
 For each character:
 * Name
+* Age
 * Hit Points
 * Stamina
 * 8 Statistics (read)
@@ -32,7 +33,6 @@ For each character:
 * Profession
 * Rank
 * Portrait
-* Age
 * Condition (Health-Related Maladies, Magical Modifiers/Resistances?)
 
 ### Thanks to

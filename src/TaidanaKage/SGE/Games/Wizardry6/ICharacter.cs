@@ -21,6 +21,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         string Name { get; set; }
 
         /// <summary>
+        /// Age (in days)
+        /// </summary>
+        int Age { get; set; }
+
+        /// <summary>
+        /// Age (in years)
+        /// </summary>
+        int AgeInYears { get; set; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }

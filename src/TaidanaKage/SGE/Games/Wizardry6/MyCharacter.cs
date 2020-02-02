@@ -76,6 +76,44 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
+        public int Age
+        {
+            get
+            {
+                return (int)(_binData[8] + (256 * _binData[9]) + (65536 * _binData[10]) + (16777216 * _binData[11]));
+            }
+            set
+            {
+                int age = value;
+                if (age < Constants.MinAge)
+                {
+                    age = Constants.MinAge;
+                }
+                if (age > Constants.MaxAge)
+                {
+                    age = Constants.MaxAge;
+                }
+                byte[] b = BitConverter.GetBytes(age);
+                _binData[8] = b[0];
+                _binData[9] = b[1];
+                _binData[10] = b[2];
+                _binData[11] = b[3];
+            }
+        }
+
+        public int AgeInYears
+        {
+            get
+            {
+                return Age / Constants.DaysInYear;
+            }
+            set
+            {
+                int age = value * Constants.DaysInYear;
+                Age = age;
+            }
+        }
+
         public Race Race { get; set; }
 
         public Sex Sex { get; set; }
