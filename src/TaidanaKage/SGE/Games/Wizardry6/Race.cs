@@ -1,7 +1,7 @@
 ﻿namespace TaidanaKage.SGE.Games.Wizardry6
 {
     /// <summary>
-    /// Wizardry 6 races
+    /// Races
     /// </summary>
     public enum Race
     {

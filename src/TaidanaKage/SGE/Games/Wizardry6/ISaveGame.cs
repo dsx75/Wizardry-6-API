@@ -10,6 +10,12 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     {
 
         /// <summary>
+        /// Number of characters in the party.
+        /// Values: 2 - 6
+        /// </summary>
+        byte PartySize { get; }
+
+        /// <summary>
         /// Player characters (party)
         /// </summary>
         List<ICharacter> Characters { get; }

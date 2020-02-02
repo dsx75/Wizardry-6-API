@@ -5,6 +5,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 {
     internal class MySaveGame : ISaveGame
     {
+        private readonly int offsetPartySize = 49854; // C2BE
         private readonly int offsetCharacter1 = 49856; // C2C0
         private readonly int binDataCharacterLenght = 432;
 
@@ -14,9 +15,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             _binData = binData;
 
+            PartySize = _binData[offsetPartySize];
+
             int offset = offsetCharacter1;
             List<ICharacter> characters = new List<ICharacter>();
-            for (int ch = 1; ch < 7; ch++)
+            for (int ch = 1; ch <= PartySize; ch++)
             {
                 byte[] binDataCharacter = new byte[binDataCharacterLenght];
                 Array.Copy(_binData, offset, binDataCharacter, 0, binDataCharacterLenght);
@@ -26,6 +29,8 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             Characters = characters;
         }
+
+        public byte PartySize { get; }
 
         public List<ICharacter> Characters { get; }
 
