@@ -24,6 +24,12 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         public const int MinGold = 0;
         public const int MaxGold = Int32.MaxValue; // Only the last 7 digits are displayed on the character screen
 
+        public const short MinHitPoints = 0;
+        public const short MaxHitPoints = Int16.MaxValue; // Only the last 4 digits are dipslayed on the character screen
+
+        public const short MinStamina = 0;
+        public const short MaxStamina = Int16.MaxValue;
+
         public const short MinLevel = 1;
         public const short MaxLevel = Int16.MaxValue;
 

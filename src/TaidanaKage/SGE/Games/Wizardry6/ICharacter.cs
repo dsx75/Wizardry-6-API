@@ -46,6 +46,26 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         int GoldPieces { get; set; }
 
         /// <summary>
+        /// Current Hit Points (HP)
+        /// </summary>
+        short CurrentHitPoints { get; set; }
+
+        /// <summary>
+        /// Total Hit Points (HP)
+        /// </summary>
+        short TotalHitPoints { get; set; }
+
+        /// <summary>
+        /// Current Stamina (STM)
+        /// </summary>
+        short CurrentStamina { get; set; }
+
+        /// <summary>
+        /// Total Stamina (STM)
+        /// </summary>
+        short TotalStamina { get; set; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }
@@ -69,30 +89,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// Rebirths
         /// </summary>
         short Rebirths { get; set; }
-
-        /// <summary>
-        /// Current hit points
-        /// Allowed values: 0 - 9999
-        /// </summary>
-        ushort CurrentHitPoints { get; set; }
-
-        /// <summary>
-        /// Max hit points
-        /// Allowed values: 0 - 9999
-        /// </summary>
-        ushort TotalHitPoints { get; set; }
-
-        /// <summary>
-        /// Current stamina
-        /// Allowed values: 0 - 9999
-        /// </summary>
-        ushort CurrentStamina { get; set; }
-
-        /// <summary>
-        /// Max stamina
-        /// Allowed values: 0 - 9999
-        /// </summary>
-        ushort TotalStamina { get; set; }
 
         /// <summary>
         /// 8 attributes (statistics) of this character.

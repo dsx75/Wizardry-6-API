@@ -11,9 +11,9 @@ For each character:
 * Age
 * Experience (EXP)
 * Monster Kill Statistic (MKS)
-* Gold Pieces
-* Hit Points
-* Stamina
+* Gold Pieces (GP)
+* Hit Points (HP)
+* Stamina (STM)
 * 8 Statistics (read)
 * Level
 * Rebirths

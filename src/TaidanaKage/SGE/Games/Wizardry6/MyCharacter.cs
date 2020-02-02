@@ -7,10 +7,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     {
         private byte[] _binData;
         private string _name;
-        private ushort _currentHitPoints;
-        private ushort _totalHitPoints;
-        private ushort _currentStamina;
-        private ushort _totalStamina;
         private IAttributes _attributes;
 
         internal MyCharacter(byte[] binData)
@@ -24,18 +20,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             {
                 _name += Convert.ToChar(_binData[i]);
             }
-
-            // Current hit points
-            _currentHitPoints = (ushort)(_binData[24] + (256 * _binData[25]));
-
-            // Total hit points
-            _totalHitPoints = (ushort)(_binData[26] + (256 * _binData[27]));
-
-            // Current stamina
-            _currentStamina = (ushort)(_binData[28] + (256 * _binData[29]));
-
-            // Total stamina
-            _totalStamina = (ushort)(_binData[30] + (256 * _binData[31]));
 
             // Attributes
             byte[] binDataAttributes = new byte[8];
@@ -189,87 +173,112 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
-        public Race Race { get; set; }
-
-        public Sex Sex { get; set; }
-
-        public Profession Profession { get; set; }
-
-        public ushort CurrentHitPoints
+        public short CurrentHitPoints
         {
             get
             {
-                return _currentHitPoints;
+                return (short)(_binData[24] + (Constants.Pow8 * _binData[25]));
             }
             set
             {
-                // TODO add checks for min/max allowed values
-
-                _currentHitPoints = value;
-
-                // Update binary data
-                byte[] b = BitConverter.GetBytes(_currentHitPoints);
+                short hp = value;
+                if (hp < Constants.MinHitPoints)
+                {
+                    hp = Constants.MinHitPoints;
+                }
+                if (hp > Constants.MaxHitPoints)
+                {
+                    hp = Constants.MaxHitPoints;
+                }
+                if (hp > TotalHitPoints)
+                {
+                    hp = TotalHitPoints;
+                }
+                byte[] b = BitConverter.GetBytes(hp);
                 _binData[24] = b[0];
                 _binData[25] = b[1];
             }
         }
 
-        public ushort TotalHitPoints
+        public short TotalHitPoints
         {
             get
             {
-                return _totalHitPoints;
+                return (short)(_binData[26] + (Constants.Pow8 * _binData[27]));
+
             }
             set
             {
-                // TODO add checks for min/max allowed values
-
-                _totalHitPoints = value;
-
-                // Update binary data
-                byte[] b = BitConverter.GetBytes(_totalHitPoints);
+                short hp = value;
+                if (hp < Constants.MinHitPoints)
+                {
+                    hp = Constants.MinHitPoints;
+                }
+                if (hp > Constants.MaxHitPoints)
+                {
+                    hp = Constants.MaxHitPoints;
+                }
+                byte[] b = BitConverter.GetBytes(hp);
                 _binData[26] = b[0];
                 _binData[27] = b[1];
             }
         }
 
-        public ushort CurrentStamina
+        public short CurrentStamina
         {
             get
             {
-                return _currentStamina;
+                return (short)(_binData[28] + (Constants.Pow8 * _binData[29]));
             }
             set
             {
-                // TODO add checks for min/max allowed values
-
-                _currentStamina = value;
-
-                // Update binary data
-                byte[] b = BitConverter.GetBytes(_currentStamina);
+                short stm = value;
+                if (stm < Constants.MinStamina)
+                {
+                    stm = Constants.MinStamina;
+                }
+                if (stm > Constants.MaxStamina)
+                {
+                    stm = Constants.MaxStamina;
+                }
+                if (stm > TotalStamina)
+                {
+                    stm = TotalStamina;
+                }
+                byte[] b = BitConverter.GetBytes(stm);
                 _binData[28] = b[0];
                 _binData[29] = b[1];
             }
         }
 
-        public ushort TotalStamina
+        public short TotalStamina
         {
             get
             {
-                return _totalStamina;
+                return (short)(_binData[30] + (Constants.Pow8 * _binData[31]));
             }
             set
             {
-                // TODO add checks for min/max allowed values
-
-                _totalStamina = value;
-
-                // Update binary data
-                byte[] b = BitConverter.GetBytes(_totalStamina);
+                short stm = value;
+                if (stm < Constants.MinStamina)
+                {
+                    stm = Constants.MinStamina;
+                }
+                if (stm > Constants.MaxStamina)
+                {
+                    stm = Constants.MaxStamina;
+                }
+                byte[] b = BitConverter.GetBytes(stm);
                 _binData[30] = b[0];
                 _binData[31] = b[1];
             }
         }
+
+        public Race Race { get; set; }
+
+        public Sex Sex { get; set; }
+
+        public Profession Profession { get; set; }
 
         public IAttributes Attributes
         {
