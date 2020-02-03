@@ -4,8 +4,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 {
     internal class MyAttributes : IAttributes
     {
-        private readonly byte maxAllowedValue = 18;
-
         private byte[] _binData;
 
         internal MyAttributes(byte[] binData)
@@ -21,6 +19,20 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
+        private void SetValue(int offset, byte value)
+        {
+            byte b = value;
+            if (b < Constants.MinAttributeValue)
+            {
+                b = Constants.MinAttributeValue;
+            }
+            if (b > Constants.MaxAttributeValue)
+            {
+                b = Constants.MaxAttributeValue;
+            }
+            _binData[offset] = b;
+        }
+
         public byte Strength
         {
             get
@@ -29,12 +41,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[0] = b;
+                SetValue(0, value);
             }
         }
 
@@ -46,12 +53,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[1] = b;
+                SetValue(1, value);
             }
         }
 
@@ -63,12 +65,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[2] = b;
+                SetValue(2, value);
             }
         }
 
@@ -80,12 +77,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[3] = b;
+                SetValue(3, value);
             }
         }
 
@@ -97,12 +89,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[4] = b;
+                SetValue(4, value);
             }
         }
 
@@ -114,12 +101,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[5] = b;
+                SetValue(5, value);
             }
         }
 
@@ -131,12 +113,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[6] = b;
+                SetValue(6, value);
             }
         }
 
@@ -148,12 +125,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
             set
             {
-                byte b = value;
-                if (b > maxAllowedValue)
-                {
-                    b = maxAllowedValue;
-                }
-                _binData[7] = b;
+                SetValue(7, value);
             }
         }
 

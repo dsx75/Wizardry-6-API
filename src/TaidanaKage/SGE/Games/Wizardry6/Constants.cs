@@ -8,14 +8,24 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     static class Constants
     {
         /// <summary>
-        /// Absolute offset for the Character's Spell Points section.
+        /// Relative offset (in Character data) for the Spell Points section.
         /// </summary>
         public const int OffsetSpellPoints = 40;
 
         /// <summary>
-        /// Length (in bytes) of the Character's Spell Points section.
+        /// Length (in bytes) of the Spell Points section.
         /// </summary>
         public const int LenghtSpellPoints = 24;
+
+        /// <summary>
+        /// Relative offset (in Character data) for the Attributes section.
+        /// </summary>
+        public const int OffsetAttributes = 300;
+
+        /// <summary>
+        /// Length (in bytes) of the Attributes section.
+        /// </summary>
+        public const int LenghtAttributes = 8;
 
         public const int Pow8 = 256; // 2^8
         public const int Pow16 = 65536; // 2^16
@@ -54,5 +64,9 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
         public const short MinSpellPoints = 0;
         public const short MaxSpellPoints = Int16.MaxValue;
+
+        public const byte MinAttributeValue = 0;
+        public const byte MaxAttributeValue = 18;
+
     }
 }

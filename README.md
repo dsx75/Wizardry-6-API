@@ -18,12 +18,11 @@ For each character:
 * Level
 * Rebirths
 * Spell Points (for each Realm)
-* 8 Statistics (read)
+* 8 Statistics
 
 ### Features to implement
 
 For each character:
-* 8 Statistics (write)
 * Equipment
 * Swag (12 Items)
 * Skills
@@ -38,6 +37,7 @@ For each character:
 ### Thanks to
 
 * David W. Bradley and Sir-Tech for designing and developing this amazing game
+* mad god for creating the [Cosmic Forge](https://mad-god.webs.com/cosmicforge.htm)
 * ceorem for [sharing his findings on GOG forums](https://www.gog.com/forum/wizardry_series/cosmic_forge_editor_how_to_edit_character_stats_in_wiz6_wiz7_savegame_files/post2)
-* John Hubbard for [sharing an end-game save game file of Wizard Kyler](https://www.tk421.net/wizardry/files.shtml)
+* John Hubbard for creating the [ultimate fansite for Wizardry series](https://www.tk421.net/wizardry/)
 * Willow for [discovering secret skills and spells](http://www.softwarespecialties.com/dcforum/DCForumID5/86.html)

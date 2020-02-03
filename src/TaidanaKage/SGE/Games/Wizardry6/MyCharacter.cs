@@ -20,8 +20,8 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             _spellPoints = new MySpellPoints(binDataSP);
 
             // Attributes
-            byte[] binDataAttributes = new byte[8];
-            Array.Copy(_binData, 300, binDataAttributes, 0, 8);
+            byte[] binDataAttributes = new byte[Constants.LenghtAttributes];
+            Array.Copy(_binData, Constants.OffsetAttributes, binDataAttributes, 0, Constants.LenghtAttributes);
             _attributes = new MyAttributes(binDataAttributes);
         }
 
@@ -29,8 +29,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                // Update bin data for Spell Points (in case they've been modified)
+                // Update bin data with Spell Points (in case they've been modified)
                 Array.Copy(SpellPoints.BinData, 0, _binData, Constants.OffsetSpellPoints, Constants.LenghtSpellPoints);
+
+                // Update bin data with Attributes (in case they've been modified)
+                Array.Copy(Attributes.BinData, 0, _binData, Constants.OffsetAttributes, Constants.LenghtAttributes);
 
                 return _binData;
             }
@@ -392,12 +395,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
-        public Race Race { get; set; }
-
-        public Sex Sex { get; set; }
-
-        public Profession Profession { get; set; }
-
         public IAttributes Attributes
         {
             get
@@ -405,6 +402,12 @@ namespace TaidanaKage.SGE.Games.Wizardry6
                 return _attributes;
             }
         }
+
+        public Race Race { get; set; }
+
+        public Sex Sex { get; set; }
+
+        public Profession Profession { get; set; }
 
     }
 }
