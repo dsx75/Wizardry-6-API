@@ -6,20 +6,12 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     internal class MyCharacter : ICharacter
     {
         private byte[] _binData;
-        private string _name;
         private IAttributes _attributes;
 
         internal MyCharacter(byte[] binData)
         {
             // TODO check if size of the hex chunk is correct (432)
             _binData = binData;
-
-            // Character name (7 letters)
-            _name = "";
-            for (int i = 0; i < 7; i++)
-            {
-                _name += Convert.ToChar(_binData[i]);
-            }
 
             // Attributes
             byte[] binDataAttributes = new byte[8];
@@ -39,23 +31,36 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _name;
+                string name = "";
+                for (int i = 0; i < 7; i++)
+                {
+                    name += Convert.ToChar(_binData[i]);
+                }
+                return name.Trim();
             }
             set
             {
+                string name = value;
+                if (name == null)
+                {
+                    throw new ArgumentNullException("name", "Character name can not be null.");
+                }
+                name = name.Trim();
+                name = name.ToUpper();
                 // TODO add check - only English alphabet letters are allowed
-                // TODO check for min required lenght 1
-                // TODO check for max allowed lenght 7
-
-                // Convert to uppercase
-                _name = value.ToUpper();
-
+                if (name.Length < Constants.MinNameLength)
+                {
+                    throw new ArgumentOutOfRangeException("name", "Character name is too short.");
+                }
+                if (name.Length > Constants.MaxNameLength)
+                {
+                    name = name.Substring(0, Constants.MaxNameLength);
+                }
                 // Fill with NUL (ASCII 0) if it's shorter than 7 letters
                 char c = '\x0';
-                _name = _name.PadRight(7, c);
-
+                name = name.PadRight(7, c);
                 // Update binary data
-                byte[] binNew = Encoding.ASCII.GetBytes(_name);
+                byte[] binNew = Encoding.ASCII.GetBytes(name);
                 Array.Copy(binNew, 0, _binData, 0, 7);
             }
         }

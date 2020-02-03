@@ -11,6 +11,9 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         public const int Pow16 = 65536; // 2^16
         public const int Pow24 = 16777216; // 2^24
 
+        public const int MinNameLength = 1;
+        public const int MaxNameLength = 7;
+
         public const int MinAge = 6570; // 18 years
         public const int MaxAge = 364635; // 999 years (only 3 digits are shown on the character screen)
         public const int DaysInYear = 365;
