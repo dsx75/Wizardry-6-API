@@ -91,6 +91,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         ISpellPoints SpellPoints { get; }
 
         /// <summary>
+        /// Statistics (attributes)
+        /// </summary>
+        IAttributes Attributes { get; }
+
+        /// <summary>
+        /// Skills
+        /// </summary>
+        ISkills Skills { get; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }
@@ -104,11 +114,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// Profession
         /// </summary>
         Profession Profession { get; set; }
-
-        /// <summary>
-        /// 8 attributes (statistics) of this character.
-        /// </summary>
-        IAttributes Attributes { get; }
 
     }
 }

@@ -27,6 +27,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// </summary>
         public const int LenghtAttributes = 8;
 
+        /// <summary>
+        /// Relative offset (in Character data) for the Skills section.
+        /// </summary>
+        public const int OffsetSkills = 308;
+
+        /// <summary>
+        /// Length (in bytes) of the Skills section.
+        /// </summary>
+        public const int LenghtSkills = 30;
+
         public const int Pow8 = 256; // 2^8
         public const int Pow16 = 65536; // 2^16
         public const int Pow24 = 16777216; // 2^24

@@ -8,6 +8,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         private byte[] _binData;
         private ISpellPoints _spellPoints;
         private IAttributes _attributes;
+        private ISkills _skills;
 
         internal MyCharacter(byte[] binData)
         {
@@ -23,6 +24,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             byte[] binDataAttributes = new byte[Constants.LenghtAttributes];
             Array.Copy(_binData, Constants.OffsetAttributes, binDataAttributes, 0, Constants.LenghtAttributes);
             _attributes = new MyAttributes(binDataAttributes);
+
+            // Skills
+            byte[] binDataSkills = new byte[Constants.LenghtSkills];
+            Array.Copy(_binData, Constants.OffsetSkills, binDataSkills, 0, Constants.LenghtSkills);
+            _skills = new MySkills(binDataSkills);
         }
 
         public byte[] BinData
@@ -34,6 +40,9 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
                 // Update bin data with Attributes (in case they've been modified)
                 Array.Copy(Attributes.BinData, 0, _binData, Constants.OffsetAttributes, Constants.LenghtAttributes);
+
+                // Update bin data with Skills (in case they've been modified)
+                Array.Copy(Skills.BinData, 0, _binData, Constants.OffsetSkills, Constants.LenghtSkills);
 
                 return _binData;
             }
@@ -400,6 +409,14 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             get
             {
                 return _attributes;
+            }
+        }
+
+        public ISkills Skills
+        {
+            get
+            {
+                return _skills;
             }
         }
 

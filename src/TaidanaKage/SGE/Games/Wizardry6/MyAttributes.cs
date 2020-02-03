@@ -4,20 +4,13 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 {
     internal class MyAttributes : IAttributes
     {
-        private byte[] _binData;
 
         internal MyAttributes(byte[] binData)
         {
-            _binData = binData;
+            BinData = binData;
         }
 
-        public byte[] BinData
-        {
-            get
-            {
-                return _binData;
-            }
-        }
+        public byte[] BinData { get; }
 
         private void SetValue(int offset, byte value)
         {
@@ -30,14 +23,14 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             {
                 b = Constants.MaxAttributeValue;
             }
-            _binData[offset] = b;
+            BinData[offset] = b;
         }
 
         public byte Strength
         {
             get
             {
-                return _binData[0];
+                return BinData[0];
             }
             set
             {
@@ -49,7 +42,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[1];
+                return BinData[1];
             }
             set
             {
@@ -61,7 +54,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[2];
+                return BinData[2];
             }
             set
             {
@@ -73,7 +66,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[3];
+                return BinData[3];
             }
             set
             {
@@ -85,7 +78,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[4];
+                return BinData[4];
             }
             set
             {
@@ -97,7 +90,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[5];
+                return BinData[5];
             }
             set
             {
@@ -109,7 +102,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[6];
+                return BinData[6];
             }
             set
             {
@@ -121,7 +114,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                return _binData[7];
+                return BinData[7];
             }
             set
             {

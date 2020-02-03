@@ -4,24 +4,17 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 {
     internal class MySpellPoints : ISpellPoints
     {
-        private byte[] _binData;
 
         internal MySpellPoints(byte[] binData)
         {
-            _binData = binData;
+            BinData = binData;
         }
 
-        public byte[] BinData
-        {
-            get
-            {
-                return _binData;
-            }
-        }
+        public byte[] BinData { get; }
 
         private short GetValue(int offsetLowerByte, int offsetUpperByte)
         {
-            return (short)(_binData[offsetLowerByte] + (Constants.Pow8 * _binData[offsetUpperByte]));
+            return (short)(BinData[offsetLowerByte] + (Constants.Pow8 * BinData[offsetUpperByte]));
         }
 
         private short CheckValue(short value)
@@ -41,8 +34,8 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         private void SetValue(int offsetLowerByte, int offsetUpperByte, short value)
         {
             byte[] b = BitConverter.GetBytes(value);
-            _binData[offsetLowerByte] = b[0];
-            _binData[offsetUpperByte] = b[1];
+            BinData[offsetLowerByte] = b[0];
+            BinData[offsetUpperByte] = b[1];
         }
 
         public short CurrentFire
