@@ -14,6 +14,7 @@ For each character:
 * Gold Pieces (GP)
 * Hit Points (HP)
 * Stamina (STM)
+* Carrying Capacity (CC)
 * 8 Statistics (read)
 * Level
 * Rebirths
@@ -22,7 +23,6 @@ For each character:
 
 For each character:
 * 8 Statistics (write)
-* CC
 * Spell Points (for each Realm)
 * Equipment
 * Swag (12 Items)

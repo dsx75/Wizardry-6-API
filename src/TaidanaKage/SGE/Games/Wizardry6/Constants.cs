@@ -33,6 +33,9 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         public const short MinStamina = 0;
         public const short MaxStamina = Int16.MaxValue;
 
+        public const short MinCarryingCapacity = 0;
+        public const short MaxCarryingCapacity = Int16.MaxValue; // Only the first 3 digits are displayed on the character screen
+
         public const short MinLevel = 1;
         public const short MaxLevel = Int16.MaxValue;
 

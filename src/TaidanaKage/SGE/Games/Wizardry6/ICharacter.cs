@@ -66,6 +66,26 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         short TotalStamina { get; set; }
 
         /// <summary>
+        /// Current Carrying Capacity (CC)
+        /// </summary>
+        short CurrentCarryingCapacity { get; set; }
+
+        /// <summary>
+        /// Total Carrying Capacity (CC)
+        /// </summary>
+        short TotalCarryingCapacity { get; set; }
+
+        /// <summary>
+        /// Level
+        /// </summary>
+        short Level { get; set; }
+
+        /// <summary>
+        /// Rebirths
+        /// </summary>
+        short Rebirths { get; set; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }
@@ -79,16 +99,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// Profession
         /// </summary>
         Profession Profession { get; set; }
-
-        /// <summary>
-        /// Level
-        /// </summary>
-        short Level { get; set; }
-
-        /// <summary>
-        /// Rebirths
-        /// </summary>
-        short Rebirths { get; set; }
 
         /// <summary>
         /// 8 attributes (statistics) of this character.

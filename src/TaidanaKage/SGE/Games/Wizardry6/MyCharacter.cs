@@ -279,17 +279,53 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             }
         }
 
-        public Race Race { get; set; }
-
-        public Sex Sex { get; set; }
-
-        public Profession Profession { get; set; }
-
-        public IAttributes Attributes
+        public short CurrentCarryingCapacity
         {
             get
             {
-                return _attributes;
+                return (short)(_binData[32] + (Constants.Pow8 * _binData[33]));
+            }
+            set
+            {
+                short cc = value;
+                if (cc < Constants.MinCarryingCapacity)
+                {
+                    cc = Constants.MinCarryingCapacity;
+                }
+                if (cc > Constants.MaxCarryingCapacity)
+                {
+                    cc = Constants.MaxCarryingCapacity;
+                }
+                if (cc > TotalCarryingCapacity)
+                {
+                    cc = TotalCarryingCapacity;
+                }
+                byte[] b = BitConverter.GetBytes(cc);
+                _binData[32] = b[0];
+                _binData[33] = b[1];
+            }
+        }
+
+        public short TotalCarryingCapacity
+        {
+            get
+            {
+                return (short)(_binData[34] + (Constants.Pow8 * _binData[35]));
+            }
+            set
+            {
+                short cc = value;
+                if (cc < Constants.MinCarryingCapacity)
+                {
+                    cc = Constants.MinCarryingCapacity;
+                }
+                if (cc > Constants.MaxCarryingCapacity)
+                {
+                    cc = Constants.MaxCarryingCapacity;
+                }
+                byte[] b = BitConverter.GetBytes(cc);
+                _binData[34] = b[0];
+                _binData[35] = b[1];
             }
         }
 
@@ -336,6 +372,20 @@ namespace TaidanaKage.SGE.Games.Wizardry6
                 byte[] b = BitConverter.GetBytes(rebirths);
                 _binData[38] = b[0];
                 _binData[39] = b[1];
+            }
+        }
+
+        public Race Race { get; set; }
+
+        public Sex Sex { get; set; }
+
+        public Profession Profession { get; set; }
+
+        public IAttributes Attributes
+        {
+            get
+            {
+                return _attributes;
             }
         }
 
