@@ -15,15 +15,15 @@ For each character:
 * Hit Points (HP)
 * Stamina (STM)
 * Carrying Capacity (CC)
-* 8 Statistics (read)
 * Level
 * Rebirths
+* Spell Points (for each Realm)
+* 8 Statistics (read)
 
 ### Features to implement
 
 For each character:
 * 8 Statistics (write)
-* Spell Points (for each Realm)
 * Equipment
 * Swag (12 Items)
 * Skills

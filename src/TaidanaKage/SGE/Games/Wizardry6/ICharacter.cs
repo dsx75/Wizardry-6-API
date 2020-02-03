@@ -86,6 +86,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         short Rebirths { get; set; }
 
         /// <summary>
+        /// Spell Points
+        /// </summary>
+        ISpellPoints SpellPoints { get; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }

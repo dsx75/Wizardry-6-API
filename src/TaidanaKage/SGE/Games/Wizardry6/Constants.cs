@@ -7,6 +7,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     /// </summary>
     static class Constants
     {
+        /// <summary>
+        /// Absolute offset for the Character's Spell Points section.
+        /// </summary>
+        public const int OffsetSpellPoints = 40;
+
+        /// <summary>
+        /// Length (in bytes) of the Character's Spell Points section.
+        /// </summary>
+        public const int LenghtSpellPoints = 24;
+
         public const int Pow8 = 256; // 2^8
         public const int Pow16 = 65536; // 2^16
         public const int Pow24 = 16777216; // 2^24
@@ -41,5 +51,8 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 
         public const short MinRebirths = 1;
         public const short MaxRebirths = Int16.MaxValue;
+
+        public const short MinSpellPoints = 0;
+        public const short MaxSpellPoints = Int16.MaxValue;
     }
 }

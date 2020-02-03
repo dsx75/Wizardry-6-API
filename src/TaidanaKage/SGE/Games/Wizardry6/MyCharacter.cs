@@ -6,12 +6,18 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     internal class MyCharacter : ICharacter
     {
         private byte[] _binData;
+        private ISpellPoints _spellPoints;
         private IAttributes _attributes;
 
         internal MyCharacter(byte[] binData)
         {
             // TODO check if size of the hex chunk is correct (432)
             _binData = binData;
+
+            // Spell Points
+            byte[] binDataSP = new byte[Constants.LenghtSpellPoints];
+            Array.Copy(_binData, Constants.OffsetSpellPoints, binDataSP, 0, Constants.LenghtSpellPoints);
+            _spellPoints = new MySpellPoints(binDataSP);
 
             // Attributes
             byte[] binDataAttributes = new byte[8];
@@ -23,6 +29,9 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
+                // Update bin data for Spell Points (in case they've been modified)
+                Array.Copy(SpellPoints.BinData, 0, _binData, Constants.OffsetSpellPoints, Constants.LenghtSpellPoints);
+
                 return _binData;
             }
         }
@@ -372,6 +381,14 @@ namespace TaidanaKage.SGE.Games.Wizardry6
                 byte[] b = BitConverter.GetBytes(rebirths);
                 _binData[38] = b[0];
                 _binData[39] = b[1];
+            }
+        }
+
+        public ISpellPoints SpellPoints
+        {
+            get
+            {
+                return _spellPoints;
             }
         }
 
