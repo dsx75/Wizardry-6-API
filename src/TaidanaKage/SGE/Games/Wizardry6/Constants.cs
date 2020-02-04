@@ -78,5 +78,8 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         public const byte MinAttributeValue = 0;
         public const byte MaxAttributeValue = 18;
 
+        public const byte MinSkillValue = 0;
+        public const byte MaxSkillValue = 100;
+
     }
 }

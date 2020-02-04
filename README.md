@@ -19,13 +19,13 @@ For each character:
 * Rebirths
 * Spell Points (for each Realm)
 * Statistics (Attributes)
+* Skills
 
 ### Features to implement
 
 For each character:
 * Equipment
 * Swag (12 Items)
-* Skills
 * Spells
 * Race
 * Sex
