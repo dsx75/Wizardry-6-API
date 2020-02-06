@@ -61,14 +61,19 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         {
             get
             {
-                // Update bin data with Spell Points (in case they've been modified)
+                // Update each sub-section of bin data (in case they've been modified)
+
+                // Spell Points
                 Array.Copy(SpellPoints.BinData, 0, _binData, OffsetSpellPoints, LengthSpellPoints);
 
-                // Update bin data with Attributes (in case they've been modified)
+                // Attributes
                 Array.Copy(Attributes.BinData, 0, _binData, Constants.OffsetAttributes, Constants.LengthAttributes);
 
-                // Update bin data with Skills (in case they've been modified)
+                // Skills
                 Array.Copy(Skills.BinData, 0, _binData, Constants.OffsetSkills, Constants.LengthSkills);
+
+                // Resistances
+                Array.Copy(Resistances.BinData, 0, _binData, OffsetResistances, LengthResistances);
 
                 return _binData;
             }

@@ -5,7 +5,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     internal class MyResistances : IResistances
     {
         private const byte MinResistanceValue = 0;
-        private const byte MaxResistanceValue = 100;
+        private const byte MaxResistanceValue = 255; // Above 100% ? Verify this.
 
         internal MyResistances(byte[] binData)
         {
