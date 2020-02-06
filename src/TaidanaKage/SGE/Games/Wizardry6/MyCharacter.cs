@@ -5,10 +5,14 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 {
     internal class MyCharacter : ICharacter
     {
+        private const int OffsetResistances = 338;
+        private const int LenghtResistances = 14;
+
         private byte[] _binData;
         private ISpellPoints _spellPoints;
         private IAttributes _attributes;
         private ISkills _skills;
+        private IResistances _resistances;
 
         internal MyCharacter(byte[] binData)
         {
@@ -29,6 +33,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             byte[] binDataSkills = new byte[Constants.LenghtSkills];
             Array.Copy(_binData, Constants.OffsetSkills, binDataSkills, 0, Constants.LenghtSkills);
             _skills = new MySkills(binDataSkills);
+
+            // Resistances
+            byte[] binDataResistances = new byte[LenghtResistances];
+            Array.Copy(_binData, OffsetResistances, binDataResistances, 0, LenghtResistances);
+            _resistances = new MyResistances(binDataResistances);
         }
 
         public byte[] BinData
@@ -417,6 +426,14 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             get
             {
                 return _skills;
+            }
+        }
+
+        public IResistances Resistances
+        {
+            get
+            {
+                return _resistances;
             }
         }
 

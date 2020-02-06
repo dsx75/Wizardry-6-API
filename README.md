@@ -1,8 +1,8 @@
-# Wizardry 6 api
+# Wizardry 6 API
 
 A simple .NET Core library for editing Wizardry 6 save game files.
 
-Work in progress. More info soon.
+Work in progress.
 
 ### Implemented features
 
@@ -20,6 +20,7 @@ For each character:
 * Spell Points (for each Realm)
 * Statistics (Attributes)
 * Skills
+* Resistances
 
 ### Features to implement
 
@@ -32,7 +33,7 @@ For each character:
 * Profession
 * Rank
 * Portrait
-* Condition (Health-Related Maladies, Magical Modifiers/Resistances?)
+* Conditions
 
 ### Thanks to
 

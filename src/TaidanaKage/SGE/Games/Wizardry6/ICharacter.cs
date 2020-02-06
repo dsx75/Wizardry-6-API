@@ -101,6 +101,11 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         ISkills Skills { get; }
 
         /// <summary>
+        /// Resistances
+        /// </summary>
+        IResistances Resistances { get; }
+
+        /// <summary>
         /// Race
         /// </summary>
         Race Race { get; set; }
