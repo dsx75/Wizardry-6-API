@@ -5,7 +5,24 @@ namespace TaidanaKage.SGE.Games.Wizardry6
 {
     internal class MyCharacter : ICharacter
     {
+        /// <summary>
+        /// Relative offset (in Character data) for the Spell Points section.
+        /// </summary>
+        private const int OffsetSpellPoints = 40;
+
+        /// <summary>
+        /// Length (in bytes) of the Spell Points section.
+        /// </summary>
+        private const int LengthSpellPoints = 24;
+
+        /// <summary>
+        /// Relative offset (in Character data) for the Resistances section.
+        /// </summary>
         private const int OffsetResistances = 338;
+
+        /// <summary>
+        /// Length (in bytes) of the Resistances section.
+        /// </summary>
         private const int LengthResistances = 14;
 
         private byte[] _binData;
@@ -20,8 +37,8 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             _binData = binData;
 
             // Spell Points
-            byte[] binDataSP = new byte[Constants.LengthSpellPoints];
-            Array.Copy(_binData, Constants.OffsetSpellPoints, binDataSP, 0, Constants.LengthSpellPoints);
+            byte[] binDataSP = new byte[LengthSpellPoints];
+            Array.Copy(_binData, OffsetSpellPoints, binDataSP, 0, LengthSpellPoints);
             _spellPoints = new MySpellPoints(binDataSP);
 
             // Attributes
@@ -45,7 +62,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             get
             {
                 // Update bin data with Spell Points (in case they've been modified)
-                Array.Copy(SpellPoints.BinData, 0, _binData, Constants.OffsetSpellPoints, Constants.LengthSpellPoints);
+                Array.Copy(SpellPoints.BinData, 0, _binData, OffsetSpellPoints, LengthSpellPoints);
 
                 // Update bin data with Attributes (in case they've been modified)
                 Array.Copy(Attributes.BinData, 0, _binData, Constants.OffsetAttributes, Constants.LengthAttributes);

@@ -7,15 +7,6 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     /// </summary>
     static class Constants
     {
-        /// <summary>
-        /// Relative offset (in Character data) for the Spell Points section.
-        /// </summary>
-        public const int OffsetSpellPoints = 40;
-
-        /// <summary>
-        /// Length (in bytes) of the Spell Points section.
-        /// </summary>
-        public const int LengthSpellPoints = 24;
 
         /// <summary>
         /// Relative offset (in Character data) for the Attributes section.
