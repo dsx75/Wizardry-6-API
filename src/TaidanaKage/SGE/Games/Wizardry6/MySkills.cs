@@ -5,16 +5,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
     internal class MySkills : ISkills
     {
         private const int offsetWeaponry = 0;
-        private const int lenghtWeaponry = 10;
+        private const int lengthWeaponry = 10;
 
         private const int offsetPhysical = 10;
-        private const int lenghtPhysical = 7;
+        private const int lengthPhysical = 7;
 
         private const int offsetPersonal = 17;
-        private const int lenghtPersonal = 5;
+        private const int lengthPersonal = 5;
 
         private const int offsetAcademia = 22;
-        private const int lenghtAcademia = 8;
+        private const int lengthAcademia = 8;
 
         private byte[] _binData;
         private IWeaponrySkills _weaponry;
@@ -27,23 +27,23 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             _binData = binData;
 
             // Weaponry skills
-            byte[] binDataWeaponry = new byte[lenghtWeaponry];
-            Array.Copy(_binData, offsetWeaponry, binDataWeaponry, 0, lenghtWeaponry);
+            byte[] binDataWeaponry = new byte[lengthWeaponry];
+            Array.Copy(_binData, offsetWeaponry, binDataWeaponry, 0, lengthWeaponry);
             _weaponry = new MyWeaponrySkills(binDataWeaponry);
 
             // Physical skills
-            byte[] binDataPhysical = new byte[lenghtPhysical];
-            Array.Copy(_binData, offsetPhysical, binDataPhysical, 0, lenghtPhysical);
+            byte[] binDataPhysical = new byte[lengthPhysical];
+            Array.Copy(_binData, offsetPhysical, binDataPhysical, 0, lengthPhysical);
             _physical = new MyPhysicalSkills(binDataPhysical);
 
             // Personal skills
-            byte[] binDataPersonal = new byte[lenghtPersonal];
-            Array.Copy(_binData, offsetPersonal, binDataPersonal, 0, lenghtPersonal);
+            byte[] binDataPersonal = new byte[lengthPersonal];
+            Array.Copy(_binData, offsetPersonal, binDataPersonal, 0, lengthPersonal);
             _personal = new MyPersonalSkills(binDataPersonal);
 
             // Academia skills
-            byte[] binDataAcademia = new byte[lenghtAcademia];
-            Array.Copy(_binData, offsetAcademia, binDataAcademia, 0, lenghtAcademia);
+            byte[] binDataAcademia = new byte[lengthAcademia];
+            Array.Copy(_binData, offsetAcademia, binDataAcademia, 0, lengthAcademia);
             _academia = new MyAcademiaSkills(binDataAcademia);
         }
 
@@ -52,16 +52,16 @@ namespace TaidanaKage.SGE.Games.Wizardry6
             get
             {
                 // Update bin data with Weaponry Skills (in case they've been modified)
-                Array.Copy(Weaponry.BinData, 0, _binData, offsetWeaponry, lenghtWeaponry);
+                Array.Copy(Weaponry.BinData, 0, _binData, offsetWeaponry, lengthWeaponry);
 
                 // Update bin data with Physical Skills (in case they've been modified)
-                Array.Copy(Physical.BinData, 0, _binData, offsetPhysical, lenghtPhysical);
+                Array.Copy(Physical.BinData, 0, _binData, offsetPhysical, lengthPhysical);
 
                 // Update bin data with Personal Skills (in case they've been modified)
-                Array.Copy(Personal.BinData, 0, _binData, offsetPersonal, lenghtPersonal);
+                Array.Copy(Personal.BinData, 0, _binData, offsetPersonal, lengthPersonal);
 
                 // Update bin data with Academia Skills (in case they've been modified)
-                Array.Copy(Academia.BinData, 0, _binData, offsetAcademia, lenghtAcademia);
+                Array.Copy(Academia.BinData, 0, _binData, offsetAcademia, lengthAcademia);
 
                 return _binData;
             }

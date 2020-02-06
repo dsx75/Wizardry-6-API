@@ -15,7 +15,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// <summary>
         /// Length (in bytes) of the Spell Points section.
         /// </summary>
-        public const int LenghtSpellPoints = 24;
+        public const int LengthSpellPoints = 24;
 
         /// <summary>
         /// Relative offset (in Character data) for the Attributes section.
@@ -25,7 +25,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// <summary>
         /// Length (in bytes) of the Attributes section.
         /// </summary>
-        public const int LenghtAttributes = 8;
+        public const int LengthAttributes = 8;
 
         /// <summary>
         /// Relative offset (in Character data) for the Skills section.
@@ -35,7 +35,7 @@ namespace TaidanaKage.SGE.Games.Wizardry6
         /// <summary>
         /// Length (in bytes) of the Skills section.
         /// </summary>
-        public const int LenghtSkills = 30;
+        public const int LengthSkills = 30;
 
         public const int Pow8 = 256; // 2^8
         public const int Pow16 = 65536; // 2^16
